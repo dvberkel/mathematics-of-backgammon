@@ -27,4 +27,9 @@ public class ProtoPosition
 		return count;
 	}
 
+	public int numberOfStones()
+	{
+		return countNumberOf(1);
+	}
+
 }

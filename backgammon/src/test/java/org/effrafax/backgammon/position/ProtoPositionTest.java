@@ -19,4 +19,11 @@ public class ProtoPositionTest
 		ProtoPosition protoPosition = new ProtoPosition(0, 1, 0, 1);
 		assertTrue(3 == protoPosition.numberOfPoints());
 	}
+
+	@Test
+	public void canDetermineNumberOfStones()
+	{
+		ProtoPosition protoPosition = new ProtoPosition(0, 1, 0, 1);
+		assertTrue(2 == protoPosition.numberOfStones());
+	}
 }
