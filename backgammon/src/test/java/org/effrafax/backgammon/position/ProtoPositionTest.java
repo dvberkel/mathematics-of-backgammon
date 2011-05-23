@@ -3,6 +3,7 @@ package org.effrafax.backgammon.position;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -43,5 +44,8 @@ public class ProtoPositionTest
 		assertEquals(new ProtoPosition(1, 0, 1, 0), protoPosition.next());
 		assertEquals(new ProtoPosition(1, 0, 0, 1), protoPosition.next().next());
 		assertEquals(new ProtoPosition(0, 1, 1, 0), protoPosition.next().next().next());
+		assertEquals(new ProtoPosition(0, 1, 0, 1), protoPosition.next().next().next().next());
+		assertEquals(new ProtoPosition(0, 0, 1, 1), protoPosition.next().next().next().next().next());
+		assertNull(protoPosition.next().next().next().next().next().next());
 	}
 }
