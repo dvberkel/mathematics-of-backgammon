@@ -4,6 +4,8 @@ public class FindIndex
 {
 	private final int[] data;
 
+	private final int minimumIndex;
+
 	private final int maximumIndex;
 
 	public static FindIndex in(int[] data)
@@ -16,21 +18,27 @@ public class FindIndex
 		return new FindIndex(data);
 	}
 
-	public FindIndex(int[] data)
+	private FindIndex(int[] data)
 	{
 		this(data, data.length);
 	}
 
-	public FindIndex(int[] data, int maximumIndex)
+	private FindIndex(int[] data, int maximumIndex)
+	{
+		this(data, -1, maximumIndex);
+	}
+
+	private FindIndex(int[] data, int minimumIndex, int maximumIndex)
 	{
 		this.data = data;
+		this.minimumIndex = minimumIndex;
 		this.maximumIndex = maximumIndex;
 	}
 
 	public int findGreatestIndexOf(int element)
 	{
 		int index = maximumIndex - 1;
-		while (index >= 0 && data[index] != element)
+		while (index > minimumIndex && data[index] != element)
 		{
 			index--;
 		}
@@ -40,5 +48,10 @@ public class FindIndex
 	public FindIndex withIndicesLessThen(int maximumIndex)
 	{
 		return new FindIndex(data, maximumIndex);
+	}
+
+	public FindIndex withIndicesBetween(int minimumIndex, int maximumIndex)
+	{
+		return new FindIndex(data, minimumIndex, maximumIndex);
 	}
 }

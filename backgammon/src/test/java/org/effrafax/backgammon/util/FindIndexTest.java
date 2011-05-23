@@ -40,6 +40,12 @@ public class FindIndexTest
 		assertEqualInts(2, FindIndex.in(data).withIndicesLessThen(3).findGreatestIndexOf(0));
 	}
 
+	@Test
+	public void shouldFindGreatestIndexIn()
+	{
+		assertEqualInts(1, FindIndex.in(data).withIndicesBetween(0, 3).findGreatestIndexOf(1));
+	}
+
 	private void assertEqualInts(int expected, int actual)
 	{
 		assertEquals(Integer.valueOf(expected), Integer.valueOf(actual));
