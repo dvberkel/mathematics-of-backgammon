@@ -31,7 +31,7 @@ public class FindIndexTest
 	@Test
 	public void shouldFindGreatestIndex()
 	{
-		assertEqualInts(3, FindIndex.in(new int[] { 1, 1, 0, 0 }).findGreatestIndexOf(0));
+		assertEqualInts(3, FindIndex.in(data).findGreatestIndexOf(0));
 	}
 
 	private void assertEqualInts(int expected, int actual)
