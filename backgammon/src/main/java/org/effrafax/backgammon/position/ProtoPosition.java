@@ -2,6 +2,8 @@ package org.effrafax.backgammon.position;
 
 import java.util.Arrays;
 
+import org.effrafax.backgammon.util.IndexUtil;
+
 public class ProtoPosition
 {
 	private int[] protoPosition;
@@ -63,11 +65,7 @@ public class ProtoPosition
 
 	public ProtoPosition next()
 	{
-		int greatestIndexOf1 = protoPosition.length - 1;
-		while (greatestIndexOf1 >= 0 && protoPosition[greatestIndexOf1] == 0)
-		{
-			greatestIndexOf1--;
-		}
+		int greatestIndexOf1 = IndexUtil.greatestIndexOfLessThenIn(1, protoPosition.length, protoPosition);
 		if (0 <= greatestIndexOf1 && greatestIndexOf1 < protoPosition.length - 1)
 		{
 			int[] copy = Arrays.copyOf(protoPosition, protoPosition.length);
@@ -77,18 +75,10 @@ public class ProtoPosition
 		}
 		else if (0 <= greatestIndexOf1)
 		{
-			int greatesIndexOf0 = greatestIndexOf1;
-			while (greatesIndexOf0 >= 0 && protoPosition[greatesIndexOf0] == 1)
-			{
-				greatesIndexOf0--;
-			}
+			int greatesIndexOf0 = IndexUtil.greatestIndexOfLessThenIn(0, greatestIndexOf1, protoPosition);
 			if (0 <= greatesIndexOf0)
 			{
-				int greatestActive1 = greatesIndexOf0;
-				while (greatestActive1 >= 0 && protoPosition[greatestActive1] == 0)
-				{
-					greatestActive1--;
-				}
+				int greatestActive1 = IndexUtil.greatestIndexOfLessThenIn(1, greatesIndexOf0, protoPosition);
 				if (greatestActive1 >= 0)
 				{
 					int[] copy = Arrays.copyOf(protoPosition, protoPosition.length);
