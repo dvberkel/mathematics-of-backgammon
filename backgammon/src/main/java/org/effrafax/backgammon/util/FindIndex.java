@@ -2,6 +2,8 @@ package org.effrafax.backgammon.util;
 
 public class FindIndex
 {
+	private final int[] data;
+
 	public static FindIndex in(int[] data)
 	{
 		if (data == null)
@@ -14,6 +16,16 @@ public class FindIndex
 
 	public FindIndex(int[] data)
 	{
-		// TODO Auto-generated constructor stub
+		this.data = data;
+	}
+
+	public int findGreatestIndexOf(int element)
+	{
+		int index = data.length - 1;
+		while (index >= 0 && data[index] != element)
+		{
+			index--;
+		}
+		return index;
 	}
 }
